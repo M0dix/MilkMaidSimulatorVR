@@ -12,7 +12,7 @@ public class ContinousMovement : MonoBehaviour
     private Vector2 inputAxis;
     private CharacterController character;
     private XROrigin rig;
-    private readonly float gravity = 9.8f;
+    public float gravity = -9.81f;
     private readonly float heightOffset = 0.2f;
     private float fallingSpeed;
 
@@ -28,10 +28,10 @@ public class ContinousMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //CapsuleFollowHeadset();
+        CapsuleFollowHeadset();
         Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
         Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
-        character.Move(direction * speed * Time.deltaTime);
+        character.Move(direction * speed * Time.fixedDeltaTime);
 
         bool isGrounded = CheckIfGrounded();
         if (isGrounded)
@@ -42,7 +42,7 @@ public class ContinousMovement : MonoBehaviour
         {
             fallingSpeed += gravity * Time.fixedDeltaTime;
         }
-        character.Move(Vector3.down * fallingSpeed * Time.fixedDeltaTime);
+        character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
     }
 
     // Update is called once per frame
