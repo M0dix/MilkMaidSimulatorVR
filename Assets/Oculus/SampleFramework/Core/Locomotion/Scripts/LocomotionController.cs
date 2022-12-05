@@ -54,7 +54,7 @@ public class LocomotionController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enableLeftTeleport && CheckIfActive(leftTeleportRay))
+/*        if (enableLeftTeleport && CheckIfActive(leftTeleportRay))
         {
             if (i < 20)
             {
@@ -66,7 +66,7 @@ public class LocomotionController : MonoBehaviour
                 leftTeleportRay.gameObject.SetActive(isLeftActive);
                 i = 0;
             }
-        }
+        }*/
 
         if (enableRightTeleport && CheckIfActive(rightTeleportRay))
         {
