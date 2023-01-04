@@ -46,7 +46,7 @@ AnimatorState:
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_CycleOffsetParameter: Blend
   m_TimeParameter: 
 --- !u!206 &-2099028563537731935
 BlendTree:
